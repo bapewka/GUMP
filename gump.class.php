@@ -484,97 +484,97 @@ class GUMP
 
             switch ($e['rule']) {
                 case 'mismatch' :
-                    $resp[] = "There is no validation rule for <span class=\"$field_class\">$field</span>";
+                    $resp[] = "Нет правила валидации для <span class=\"$field_class\">$field</span>";
                     break;
                 case 'validate_required' :
-                    $resp[] = "The <span class=\"$field_class\">$field</span> field is required";
+                    $resp[] = "Поле <span class=\"$field_class\">$field</span> обязательно для заполнения";
                     break;
                 case 'validate_valid_email':
-                    $resp[] = "The <span class=\"$field_class\">$field</span> field is required to be a valid email address";
+                    $resp[] = "Поле <span class=\"$field_class\">$field</span> должно содержать валидный Email адрес";
                     break;
                 case 'validate_max_len':
-                    $resp[] = "The <span class=\"$field_class\">$field</span> field needs to be $param or shorter in length";
+                    $resp[] = "Поле <span class=\"$field_class\">$field</span> должно состоять из $param или меньше символов";
                     break;
                 case 'validate_min_len':
-                    $resp[] = "The <span class=\"$field_class\">$field</span> field needs to be $param or longer in length";
+                    $resp[] = "Поле <span class=\"$field_class\">$field</span> должно состоять из $param или больше символов";
                     break;
                 case 'validate_exact_len':
-                    $resp[] = "The <span class=\"$field_class\">$field</span> field needs to be exactly $param characters in length";
+                    $resp[] = "Поле <span class=\"$field_class\">$field</span> должно состоять из $param символов";
                     break;
                 case 'validate_alpha':
-                    $resp[] = "The <span class=\"$field_class\">$field</span> field may only contain alpha characters(a-z)";
+                    $resp[] = "Поле <span class=\"$field_class\">$field</span> может содержать только буквы";
                     break;
                 case 'validate_alpha_numeric':
-                    $resp[] = "The <span class=\"$field_class\">$field</span> field may only contain alpha-numeric characters";
+                    $resp[] = "Поле <span class=\"$field_class\">$field</span> может содержать только цифры или буквы";
                     break;
                 case 'validate_alpha_dash':
-                    $resp[] = "The <span class=\"$field_class\">$field</span> field may only contain alpha characters &amp; dashes";
+                    $resp[] = "Поле <span class=\"$field_class\">$field</span> может содержать только буквы и тире";
                     break;
                 case 'validate_numeric':
-                    $resp[] = "The <span class=\"$field_class\">$field</span> field may only contain numeric characters";
+                    $resp[] = "Поле <span class=\"$field_class\">$field</span> может содержать только числа";
                     break;
                 case 'validate_integer':
-                    $resp[] = "The <span class=\"$field_class\">$field</span> field may only contain a numeric value";
+                    $resp[] = "Поле <span class=\"$field_class\">$field</span> может содержать только числа";
                     break;
                 case 'validate_boolean':
-                    $resp[] = "The <span class=\"$field_class\">$field</span> field may only contain a true or false value";
+                    $resp[] = "Поле <span class=\"$field_class\">$field</span> может содержать только логические значения";
                     break;
                 case 'validate_float':
-                    $resp[] = "The <span class=\"$field_class\">$field</span> field may only contain a float value";
+                    $resp[] = "Поле <span class=\"$field_class\">$field</span> может содержать только числа с плавающей точкой";
                     break;
                 case 'validate_valid_url':
-                    $resp[] = "The <span class=\"$field_class\">$field</span> field is required to be a valid URL";
+                    $resp[] = "Поле <span class=\"$field_class\">$field</span> должно содержать валидный URL";
                     break;
                 case 'validate_url_exists':
-                    $resp[] = "The <span class=\"$field_class\">$field</span> URL does not exist";
+                    $resp[] = "<span class=\"$field_class\">$field</span> URL не существует";
                     break;
                 case 'validate_valid_ip':
-                    $resp[] = "The <span class=\"$field_class\">$field</span> field needs to contain a valid IP address";
+                    $resp[] = "Поле <span class=\"$field_class\">$field</span> должно содержать валидный IP";
                     break;
                 case 'validate_valid_cc':
-                    $resp[] = "The <span class=\"$field_class\">$field</span> field needs to contain a valid credit card number";
+                    $resp[] = "Поле <span class=\"$field_class\">$field</span> должно содержать валидный номер кредитной карты";
                     break;
                 case 'validate_valid_name':
-                    $resp[] = "The <span class=\"$field_class\">$field</span> field needs to contain a valid human name";
+                    $resp[] = "Поле <span class=\"$field_class\">$field</span> должно содержать имя";
                     break;
                 case 'validate_contains':
-                    $resp[] = "The <span class=\"$field_class\">$field</span> field needs to contain one of these values: ".implode(', ', $param);
+                    $resp[] = "Поле <span class=\"$field_class\">$field</span> должно содержать одно из этих значений: ".implode(', ', $param);
                     break;
                 case 'validate_contains_list':
-                    $resp[] = "The <span class=\"$field_class\">$field</span> field needs contain a value from its drop down list";
+                    $resp[] = "Поле <span class=\"$field_class\">$field</span> должно содержать значение из выпадающего списка";
                     break;
                 case 'validate_doesnt_contain_list':
-                    $resp[] = "The <span class=\"$field_class\">$field</span> field contains a value that is not accepted";
+                    $resp[] = "Поле <span class=\"$field_class\">$field</span> содержит запрещенное значение";
                     break;
                 case 'validate_street_address':
-                    $resp[] = "The <span class=\"$field_class\">$field</span> field needs to be a valid street address";
+                    $resp[] = "Поле <span class=\"$field_class\">$field</span> должно содержать адрес";
                     break;
                 case 'validate_date':
-                    $resp[] = "The <span class=\"$field_class\">$field</span> field needs to be a valid date";
+                    $resp[] = "Поле <span class=\"$field_class\">$field</span> должно содержать дату";
                     break;
                 case 'validate_min_numeric':
-                    $resp[] = "The <span class=\"$field_class\">$field</span> field needs to be a numeric value, equal to, or higher than $param";
+                    $resp[] = "Поле <span class=\"$field_class\">$field</span> должно быть числом, равным или больше чем $param";
                     break;
                 case 'validate_max_numeric':
-                    $resp[] = "The <span class=\"$field_class\">$field</span> field needs to be a numeric value, equal to, or lower than $param";
+                    $resp[] = "Поле <span class=\"$field_class\">$field</span> должно быть числом, равным или меньше чем $param";
                     break;
                 case 'validate_starts':
-                    $resp[] = "The <span class=\"$field_class\">$field</span> field needs to start with $param";
+                    $resp[] = "Поле <span class=\"$field_class\">$field</span> должно начинатся с $param";
                     break;
                 case 'validate_extension':
-                    $resp[] = "The <span class\"$field_class\">$field</span> field can have the following extensions $param";
+                    $resp[] = "Поле <span class\"$field_class\">$field</span> может содержать только следующие расширения $param";
                     break;
                 case 'validate_required_file':
-                    $resp[] = "The <span class\"$field_class\">$field</span> field is required";
+                    $resp[] = "Поле <span class\"$field_class\">$field</span> обязательно для заполнения";
                     break;
                 case 'validate_equalsfield':
-                    $resp[] = "The <span class=\"$field_class\">$field</span> field does not equal $param field";
+                    $resp[] = "Поле <span class=\"$field_class\">$field</span> не равно полю $param";
                     break;
                 case 'validate_min_age':
-                    $resp[] = "The <span class=\"$field_class\">$field</span> field needs to have an age greater than or equal to $param";
+                    $resp[] = "Поле <span class=\"$field_class\">$field</span> должно содержать возарст больше или равный $param";
                     break;
                 default:
-                    $resp[] = "The <span class=\"$field_class\">$field</span> field is invalid";
+                    $resp[] = "Поле <span class=\"$field_class\">$field</span> не валидно";
             }
         }
 

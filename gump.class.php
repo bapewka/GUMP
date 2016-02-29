@@ -616,79 +616,97 @@ class GUMP
 
             switch ($e['rule']) {
                 case 'mismatch' :
-                    $resp[$field] = "There is no validation rule for $field";
+                    $resp[$field] = "Нет правила валидации для $field";
                     break;
-                case 'validate_required':
-                    $resp[$field] = "The $field field is required";
+                case 'validate_required' :
+                    $resp[$field] = "Поле $field обязательно для заполнения";
                     break;
                 case 'validate_valid_email':
-                    $resp[$field] = "The $field field is required to be a valid email address";
+                    $resp[$field] = "Поле $field должно содержать валидный Email адрес";
                     break;
                 case 'validate_max_len':
-                    $resp[$field] = "The $field field needs to be $param or shorter in length";
+                    $resp[$field] = "Поле $field должно состоять из $param или меньше символов";
                     break;
                 case 'validate_min_len':
-                    $resp[$field] = "The $field field needs to be $param or longer in length";
+                    $resp[$field] = "Поле $field должно состоять из $param или больше символов";
                     break;
                 case 'validate_exact_len':
-                    $resp[$field] = "The $field field needs to be exactly $param characters in length";
+                    $resp[$field] = "Поле $field должно состоять из $param символов";
                     break;
                 case 'validate_alpha':
-                    $resp[$field] = "The $field field may only contain alpha characters(a-z)";
+                    $resp[$field] = "Поле $field может содержать только буквы";
                     break;
                 case 'validate_alpha_numeric':
-                    $resp[$field] = "The $field field may only contain alpha-numeric characters";
+                    $resp[$field] = "Поле $field может содержать только цифры или буквы";
                     break;
                 case 'validate_alpha_dash':
-                    $resp[$field] = "The $field field may only contain alpha characters &amp; dashes";
+                    $resp[$field] = "Поле $field может содержать только буквы и тире";
                     break;
                 case 'validate_numeric':
-                    $resp[$field] = "The $field field may only contain numeric characters";
+                    $resp[$field] = "Поле $field может содержать только числа";
                     break;
                 case 'validate_integer':
-                    $resp[$field] = "The $field field may only contain a numeric value";
+                    $resp[$field] = "Поле $field может содержать только числа";
                     break;
                 case 'validate_boolean':
-                    $resp[$field] = "The $field field may only contain a true or false value";
+                    $resp[$field] = "Поле $field может содержать только логические значения";
                     break;
                 case 'validate_float':
-                    $resp[$field] = "The $field field may only contain a float value";
+                    $resp[$field] = "Поле $field может содержать только числа с плавающей точкой";
                     break;
                 case 'validate_valid_url':
-                    $resp[$field] = "The $field field is required to be a valid URL";
+                    $resp[$field] = "Поле $field должно содержать валидный URL";
                     break;
                 case 'validate_url_exists':
-                    $resp[$field] = "The $field URL does not exist";
+                    $resp[$field] = "$field URL не существует";
                     break;
                 case 'validate_valid_ip':
-                    $resp[$field] = "The $field field needs to contain a valid IP address";
+                    $resp[$field] = "Поле $field должно содержать валидный IP";
                     break;
                 case 'validate_valid_cc':
-                    $resp[$field] = "The $field field needs to contain a valid credit card number";
+                    $resp[$field] = "Поле $field должно содержать валидный номер кредитной карты";
                     break;
                 case 'validate_valid_name':
-                    $resp[$field] = "The $field field needs to contain a valid human name";
+                    $resp[$field] = "Поле $field должно содержать имя";
                     break;
                 case 'validate_contains':
-                    $resp[$field] = "The $field field needs to contain one of these values: ".implode(', ', $param);
+                    $resp[$field] = "Поле $field должно содержать одно из этих значений: ".implode(', ', $param);
+                    break;
+                case 'validate_contains_list':
+                    $resp[$field] = "Поле $field должно содержать значение из выпадающего списка";
+                    break;
+                case 'validate_doesnt_contain_list':
+                    $resp[$field] = "Поле $field содержит запрещенное значение";
                     break;
                 case 'validate_street_address':
-                    $resp[$field] = "The $field field needs to be a valid street address";
+                    $resp[$field] = "Поле $field должно содержать адрес";
                     break;
                 case 'validate_date':
-                    $resp[$field] = "The $field field needs to be a valid date";
+                    $resp[$field] = "Поле $field должно содержать дату";
                     break;
                 case 'validate_min_numeric':
-                    $resp[$field] = "The $field field needs to be a numeric value, equal to, or higher than $param";
+                    $resp[$field] = "Поле $field должно быть числом, равным или больше чем $param";
                     break;
                 case 'validate_max_numeric':
-                    $resp[$field] = "The $field field needs to be a numeric value, equal to, or lower than $param";
+                    $resp[$field] = "Поле $field должно быть числом, равным или меньше чем $param";
+                    break;
+                case 'validate_starts':
+                    $resp[$field] = "Поле $field должно начинатся с $param";
+                    break;
+                case 'validate_extension':
+                    $resp[$field] = "Поле $field может содержать только следующие расширения $param";
+                    break;
+                case 'validate_required_file':
+                    $resp[$field] = "Поле $field обязательно для заполнения";
+                    break;
+                case 'validate_equalsfield':
+                    $resp[$field] = "Поле $field не равно полю $param";
                     break;
                 case 'validate_min_age':
-                    $resp[$field] = "The $field field needs to have an age greater than or equal to $param";
+                    $resp[$field] = "Поле $field должно содержать возарст больше или равный $param";
                     break;
                 default:
-                    $resp[$field] = "The $field field is invalid";
+                    $resp[$field] = "Поле $field не валидно";
             }
         }
 
@@ -1223,7 +1241,7 @@ class GUMP
             return;
         }
 
-        if (!preg_match('/^([a-zÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ])+$/i', $input[$field]) !== false) {
+        if (!preg_match('/^([а-яa-zÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ])+$/i', $input[$field]) !== false) {
             return array(
                 'field' => $field,
                 'value' => $input[$field],
@@ -1250,7 +1268,7 @@ class GUMP
             return;
         }
 
-        if (!preg_match('/^([a-z0-9ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ])+$/i', $input[$field]) !== false) {
+        if (!preg_match('/^([а-яa-z0-9ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ])+$/i', $input[$field]) !== false) {
             return array(
                 'field' => $field,
                 'value' => $input[$field],
@@ -1277,7 +1295,7 @@ class GUMP
             return;
         }
 
-        if (!preg_match('/^([a-z0-9ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ_-])+$/i', $input[$field]) !== false) {
+        if (!preg_match('/^([а-яa-z0-9ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ_-])+$/i', $input[$field]) !== false) {
             return array(
                 'field' => $field,
                 'value' => $input[$field],
@@ -1304,7 +1322,7 @@ class GUMP
             return;
         }
 
-        if (!preg_match("/^([a-z0-9ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ\s])+$/i", $input[$field]) !== false) {
+        if (!preg_match("/^([а-яa-z0-9ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ\s])+$/i", $input[$field]) !== false) {
             return array(
                 'field' => $field,
                 'value' => $input[$field],
@@ -1654,7 +1672,7 @@ class GUMP
             return;
         }
 
-        if (!preg_match("/^([a-zÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïñðòóôõöùúûüýÿ '-])+$/i", $input[$field]) !== false) {
+        if (!preg_match("/^([а-яa-zÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïñðòóôõöùúûüýÿ '-])+$/i", $input[$field]) !== false) {
             return array(
                 'field' => $field,
                 'value' => $input[$field],
